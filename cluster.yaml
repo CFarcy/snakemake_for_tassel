@@ -1,0 +1,19 @@
+#snakemake Configuration file for sge cirad server cc2-login.cirad.fr
+#tassel gbs pipeline v5.2.18
+
+__default__: {
+  name: "snakessel-cluster",
+  memory: "100G",
+  queue: "normal.q"
+}
+
+GBSSeqToTagDB: {
+  memory: "150",
+  queue: "bigmem.q"
+}
+
+ProductionSNPCaller: {
+  memory: "150",
+  queue: "bigmem.q"
+}
+...

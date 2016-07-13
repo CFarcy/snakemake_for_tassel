@@ -1,0 +1,47 @@
+#YAML file format
+#Configuration file for tassel GBS pipeline v5.2.18 with snakemake
+
+fastq_dir: "data"
+keyfile: "data/keyfile.txt"
+db_name: "BFF.db"
+genome: "/bank/sorghum_bicolor/JGI_2.1_pseudochromosome_gbs"
+enzyme: "ApekI"
+java_memory:
+  - "50G"
+  - "100G"
+vcf: "BFF.vcf"
+
+GBSSeqToTagDBPlugin: {
+  mnQS: 20,
+  kmerLength: 64,
+  minKmerL: 20,
+  mxKmerNum: 100000000,
+  batchSize: 7,
+  c: 10
+}
+
+TagExportToFastqPlugin: {
+  c: 10
+}
+
+SAMToGBSdbPlugin: {
+  aLen: 0,
+  aProp: 0
+}
+
+DiscoverySNPCallerPluginV2: {
+  maxTagsCutSite: 64,
+  mnLCov: 0.1,
+  mnMAF: 0.0001,
+  sC: 1,
+  eC: 10
+}
+
+SNPQualityProfilerPlugin: {
+  tname: "Sorghum"
+}
+
+ProductionSNPCallerPluginV2: {
+  kmerLength: 64
+}
+...
